@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Courses from "./pages/Courses";
+import Setting from "./pages/Setting";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/courses" element={<Courses />} />
+          <Route exact path="/setting" element={<Setting />} />
         </Routes>
       </Router>
     </>
