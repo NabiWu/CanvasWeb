@@ -5,6 +5,7 @@ function Setting() {
     <div className="setting">
       <h1>Setting</h1>
       <p>hello git</p>
+      <p>cool bye git</p>
     </div>
   );
 }
