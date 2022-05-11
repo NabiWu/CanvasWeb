@@ -5,9 +5,9 @@ import CoursesList from "../components/CoursesList"
 function Course() {
   return (
     <>
-      <div>
-        Courses for this quarter
-      </div>
+      <h2>
+        Select a course:
+      </h2>
       <CoursesList />
     </>
   );

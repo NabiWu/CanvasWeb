@@ -26,9 +26,16 @@
     border-right-style: dashed;
 
 }
+.cousePage .menu h1{
+    margin: 10px;
+}
+
 
 .cousePage .content {
     flex: auto;
+}
+.cousePage .content h1{
+    margin: 10px;
 }
 
 .AnnRow,.AssiRow {
