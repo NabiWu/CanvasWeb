@@ -5,7 +5,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { AnnouncementsData } from './pseudoData';
+import { AnnouncementsData, AssignmentsData } from './pseudoData';
 const Announcements = (props) => {
   let name = props.courseName;
   let getAnnRow = (id, title, content, date) => {
@@ -23,8 +23,6 @@ const Announcements = (props) => {
     return (
       <>
         <div className="AnnBox">
-
-          <h1>Announcements</h1>
           <ul>
             {
               AnnData.map((item, index) => {
@@ -38,17 +36,79 @@ const Announcements = (props) => {
   }
   return (
     <>
+      <h1>{name}'s Announcements</h1>
       {getAnnBox(AnnouncementsData)}
     </>
   );
 }
-
 const Assignments = (props) => {
-  let name = props.courseName;
+  const AssignmentDetails = () => {
+    let { id } = useParams();
+    //TODO: need to call API by ID to fetch data
+    //
+    let assi = AssignmentsData[id - 1];
+    return (
+      <>
+        <div className='AssiDetail'>
+          <h2>{assi.title}</h2>
+          <div className='assignDesc'>
+            {assi.description}
+
+          </div>
+          <div className='assignDueDate'>
+            Due Date: <span>{assi.due_date}</span>
+          </div >
+          <div className='assignPoint'>
+            Point: <span>{assi.max_points}</span>
+          </div>
+
+        </div>
+      </>
+    )
+
+  }
+
+  let getAssiLists = (assis) => {
+    return (
+      <>
+        <ul>
+          {assis.map((assi, idx) => {
+            return (
+              <li key={assi.id}>
+                <div className="AssiRow">
+
+                  <Link to={assi.id.toString()}>
+                    <h3>{assi.title}</h3>
+                  </Link>
+                </div>
+              </li>
+            )
+          })}
+        </ul>
+      </>
+    )
+  }
+
+  const AssignmentsList = (props) => {
+    return (
+      <>
+        <h1>
+          {props.courseName}'s Assignments
+        </h1>
+
+        {getAssiLists(AssignmentsData)}
+      </>
+
+    )
+  }
+
   return (
-    <div>
-      {name}'s Assignments
-    </div>
+    <>
+      <Routes>
+        <Route path=":id" element={<AssignmentDetails />}></Route>
+        <Route path="" element={<AssignmentsList courseName={props.courseName} />}></Route>
+      </Routes>
+    </>
   );
 }
 const Grades = (props) => {
@@ -64,24 +124,21 @@ const Grades = (props) => {
 const Menu = (props) => {
 
   let name = props.courseName;
-  let curPath = "/course/" + name;
-
-
   return (
     <div>
       <ul>
         <li>
-          <Link to={curPath + "/Announcements"}>
+          <Link to={"Announcements"}>
             <span>Announcements</span>
           </Link>
         </li>
         <li>
-          <Link to={curPath + "/Assignments"}>
+          <Link to={"Assignments"}>
             <span>Assignments</span>
           </Link>
         </li>
         <li>
-          <Link to={curPath + "/Grades/"}>
+          <Link to={"Grades"}>
             <span>Grades</span>
           </Link>
         </li>
@@ -103,7 +160,7 @@ function CoursePage() {
         <div className="content">
           <Routes>
             <Route path="/Announcements" element={<Announcements courseName={name} />} />
-            <Route path="/Assignments" element={<Assignments courseName={name} />} />
+            <Route path="/Assignments/*" element={<Assignments courseName={name} />} />
             <Route path="/Grades" element={<Grades courseName={name} />} />
           </Routes>
         </div>

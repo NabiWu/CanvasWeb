@@ -27,3 +27,20 @@ export const AnnouncementsData = [
     },
 
 ]
+
+export const AssignmentsData = [
+    {
+        id: 1,
+        title: "hw1",
+        description:"This is description",
+        due_date: "6/11/2022",
+        max_points: 100,
+    },
+    {
+        id: 2,
+        title: "hw2",
+        description:"This is description",
+        due_date: "6/12/2022",
+        max_points: 100,
+    },
+]

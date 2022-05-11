@@ -31,8 +31,20 @@
     flex: auto;
 }
 
-.AnnRow {
+.AnnRow,.AssiRow {
     display: block;
     margin-top: 2em;
     padding-inline-start: 20px;
+}
+
+.assignDesc{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px;
+    border-style: double;
+}
+
+.assignDueDate, .assignPoint{
+    font-weight: bolder;
 }
