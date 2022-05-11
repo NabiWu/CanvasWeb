@@ -1,11 +1,16 @@
 import React from "react";
+import CoursesList from "../components/CoursesList"
 
-function Courses() {
+
+function Course() {
   return (
-    <div className="courses">
-      <h1>Courses</h1>
-    </div>
+    <>
+      <div>
+        Courses for this quarter
+      </div>
+      <CoursesList />
+    </>
   );
 }
 
-export default Courses;
+export default Course;

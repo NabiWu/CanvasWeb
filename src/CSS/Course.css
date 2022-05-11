@@ -1,0 +1,38 @@
+/* .CourseList {
+    text-align: center;
+    margin: auto;
+}
+
+.CourseList ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    zoom: 1;
+    *display: inline;
+}
+
+*/
+.cousePage {
+    display: flex;
+    height: 1080px;
+}
+
+.cousePage .menu {
+    width: 200px;
+    height: 100%;
+    flex: initial;
+    margin-right: 5%;
+    border-right: 2px;
+    border-right-style: dashed;
+
+}
+
+.cousePage .content {
+    flex: auto;
+}
+
+.AnnRow {
+    display: block;
+    margin-top: 2em;
+    padding-inline-start: 20px;
+}
