@@ -9,7 +9,6 @@
 
 .home,
 .dashboard,
-.courses,
 .setting {
   display: flex;
   height: 90vh;
