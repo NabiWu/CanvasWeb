@@ -61,7 +61,17 @@ const Assignments = (props) => {
           <div className='assignPoint'>
             Point: <span>{assi.max_points}</span>
           </div>
-
+        </div>
+        <div className='SubmitArea'>
+          <form action={id + "/submit"} method="post" id='HWSubmit'>
+            <fieldset>
+              <legend>Respond Area</legend>
+              <label for="HWAnswer">Your Answer:</label>
+              <br></br>
+              <textarea type="text" id='HWAnswer' name='HWAnswer' rows="10" cols="50">Type your answer here.</textarea><br></br>
+              <input type="submit" value="Submit"></input>
+            </fieldset>
+          </form>
         </div>
       </>
     )
@@ -76,7 +86,6 @@ const Assignments = (props) => {
             return (
               <li key={assi.id}>
                 <div className="AssiRow">
-
                   <Link to={assi.id.toString()}>
                     <h3>{assi.title}</h3>
                   </Link>
@@ -114,9 +123,14 @@ const Assignments = (props) => {
 const Grades = (props) => {
   let name = props.courseName;
   return (
+    <>
     <div>
       {name}'s Grades
     </div>
+    <div>
+      Leave it till backend is on.
+    </div>
+    </>
   );
 }
 
@@ -147,8 +161,7 @@ const Menu = (props) => {
   )
 }
 function CoursePage() {
-  const [sidebar, setSidebar] = useState(false);
-  const showSidebar = () => setSidebar(!sidebar);
+
   let { name } = useParams();
   return (
     <>

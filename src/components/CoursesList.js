@@ -4,13 +4,8 @@ import { CoursesListData } from './pseudoData';
 import '../CSS/Course.css';
 
 function CoursesList() {
-  const [sidebar, setSidebar] = useState(false);
-
-  const showSidebar = () => setSidebar(!sidebar);
-
   return (
     <>
-      <div className='nav-menu-items' onClick={showSidebar}></div>
       <div className='CourseList'>
         <ul>
           {CoursesListData.map((item, index) => {
