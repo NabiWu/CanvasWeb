@@ -1,10 +1,15 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 function Courses() {
   return (
-    <div className="courses">
-      <h1>Courses</h1>
-    </div>
+    <>
+      <Navbar />
+
+      <div className="courses">
+        <h1>Courses</h1>
+      </div>
+    </>
   );
 }
 

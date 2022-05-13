@@ -1,11 +1,15 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 function Setting() {
   return (
-    <div className="setting">
-      <h1>Setting</h1>
-      <p>hello git</p>
-    </div>
+    <>
+      <Navbar />
+      <div className="setting">
+        <h1>Setting</h1>
+        <p>hello git</p>
+      </div>
+    </>
   );
 }
 
