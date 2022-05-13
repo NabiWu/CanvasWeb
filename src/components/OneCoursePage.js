@@ -69,7 +69,7 @@ const Assignments = (props) => {
               <legend>Respond Area</legend>
               <label for="HWAnswer">Your Answer:</label>
               <br></br>
-              <textarea type="text" id='HWAnswer' name='HWAnswer' defaultValue="Type your answer here." rows="10" cols="50"></textarea><br></br>
+              <textarea type="text" id='HWAnswer' name='HWAnswer' placeholder="Type your answer here." rows="10" cols="50"></textarea><br></br>
               <input type="submit" value="Submit"></input>
             </fieldset>
           </form>
