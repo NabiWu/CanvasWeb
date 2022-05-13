@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import CourseList from "../components/CoursesList"
 
 
-function Course() {
+function Courses() {
   return (
     <>
       <Navbar />
@@ -15,4 +15,4 @@ function Course() {
   );
 }
 
-export default Course;
+export default Courses;

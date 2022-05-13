@@ -3,7 +3,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import Course from "./pages/Courses";
+import Courses from "./pages/Courses";
 import Setting from "./pages/Setting";
 import Register from "./pages/Register";
 import CoursePage from "./components/OneCoursePage"
