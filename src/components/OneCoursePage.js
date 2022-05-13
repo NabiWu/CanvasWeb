@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import '../CSS/Course.css';
 import {
@@ -6,6 +6,7 @@ import {
   Route,
 } from "react-router-dom";
 import { AnnouncementsData, AssignmentsData } from './pseudoData';
+import { api } from '../constant';
 const Announcements = (props) => {
   let name = props.courseName;
   let getAnnRow = (id, title, content, date) => {
@@ -68,7 +69,7 @@ const Assignments = (props) => {
               <legend>Respond Area</legend>
               <label for="HWAnswer">Your Answer:</label>
               <br></br>
-              <textarea type="text" id='HWAnswer' name='HWAnswer' rows="10" cols="50">Type your answer here.</textarea><br></br>
+              <textarea type="text" id='HWAnswer' name='HWAnswer' defaultValue="Type your answer here." rows="10" cols="50"></textarea><br></br>
               <input type="submit" value="Submit"></input>
             </fieldset>
           </form>
@@ -124,12 +125,12 @@ const Grades = (props) => {
   let name = props.courseName;
   return (
     <>
-    <div>
-      {name}'s Grades
-    </div>
-    <div>
-      Leave it till backend is on.
-    </div>
+      <div>
+        {name}'s Grades
+      </div>
+      <div>
+        Leave it till backend is on.
+      </div>
     </>
   );
 }
@@ -161,20 +162,34 @@ const Menu = (props) => {
   )
 }
 function CoursePage() {
+  // let data = await api.get('/course/'+id).then(({data})=>data);
 
-  let { name } = useParams();
+  let { id } = useParams();
+
+  const [course,setCourse] = useState({});
+
+  let getCourse = async (id) => {
+    let data = await api.get('/course/'+ id).then(({data}) => data);
+    
+    setCourse(data);
+  }
+  useEffect(
+    ()=>{
+      getCourse(id);
+    },[]
+  )
   return (
     <>
       <div className="cousePage">
         <div className="menu">
-          <h1>{name}</h1>
-          <Menu courseName={name} />
+          <h1>{course.name}</h1>
+          <Menu courseName={course.name} />
         </div>
         <div className="content">
           <Routes>
-            <Route path="/Announcements" element={<Announcements courseName={name} />} />
-            <Route path="/Assignments/*" element={<Assignments courseName={name} />} />
-            <Route path="/Grades" element={<Grades courseName={name} />} />
+            <Route path="/Announcements" element={<Announcements courseName={course.name} />} />
+            <Route path="/Assignments/*" element={<Assignments courseName={course.name} />} />
+            <Route path="/Grades" element={<Grades courseName={course.name} />} />
           </Routes>
         </div>
       </div>

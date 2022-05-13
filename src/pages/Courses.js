@@ -1,5 +1,5 @@
 import React from "react";
-import CoursesList from "../components/CoursesList"
+import CourseList from "../components/CoursesList"
 
 
 function Course() {
@@ -8,7 +8,7 @@ function Course() {
       <h2>
         Select a course:
       </h2>
-      <CoursesList />
+      <CourseList />
     </>
   );
 }

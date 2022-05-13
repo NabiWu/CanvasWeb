@@ -8,6 +8,8 @@ import Course from "./pages/Courses";
 import Setting from "./pages/Setting";
 import CoursePage from "./components/OneCoursePage"
 
+
+
 function App() {
   return (
     <>
@@ -18,7 +20,7 @@ function App() {
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/courses" element={<Course />} />
           <Route exact path="/setting" element={<Setting />} />
-          <Route path="/course/:name/*" element={<CoursePage />} />
+          <Route path="/course/:id/*" element={<CoursePage />} />
         </Routes>
       </Router>
     </>
