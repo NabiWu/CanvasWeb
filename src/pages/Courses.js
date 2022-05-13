@@ -1,16 +1,18 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import CourseList from "../components/CoursesList"
 
-function Courses() {
+
+function Course() {
   return (
     <>
       <Navbar />
-
-      <div className="courses">
-        <h1>Courses</h1>
-      </div>
+      <h2>
+        Select a course:
+      </h2>
+      <CourseList />
     </>
   );
 }
 
-export default Courses;
+export default Course;
