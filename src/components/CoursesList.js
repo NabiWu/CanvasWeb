@@ -1,29 +1,82 @@
-import React, { useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CoursesListData } from './pseudoData';
 import '../CSS/Course.css';
+import axios from 'axios';
+import '../constant';
+import { api } from '../constant';
 
-function CoursesList() {
+
+function CourseList() {
+  const [courses, setCourses] = useState([]);
+
+  let getCourses = async () => {
+    let data = await api.get('/course').then(({ data }) => data);
+    setCourses(data);
+  }
+  useEffect(
+    () => {
+      console.log('CourseList mounted');
+      getCourses()
+    }, []
+  )
   return (
     <>
       <div className='CourseList'>
         <ul>
-          {CoursesListData.map((item, index) => {
+          {courses.map(course => {
             return (
-
-              <li key={index} className="CourseLi">
-                <Link to={'/course' + item.path}>
-                  <span>{item.name}</span>
+              <li key={course.id} className="CourseLi">
+                <Link to={'/course/' + course.id}>
+                  <span>{course.name}</span>
                 </Link>
               </li>
-
             );
           })}
         </ul>
       </div>
-
     </>
   );
+
+
 }
 
-export default CoursesList;
+//not use, for referential purpose
+class CourseListClass extends Component {
+  getCourses = async () => {
+    let data = await api.get('/course').then(({ data }) => data);
+    this.setState({ courses: data });
+  }
+  state = {
+    courses: []
+  }
+  constructor() {
+    super();
+  }
+  componentDidMount() {
+    this.getCourses();
+
+  }
+  render() {
+    return (
+      <>
+        <div className='CourseList'>
+          <ul>
+            {this.state.courses.map(course => {
+              return (
+                <li key={course.id} className="CourseLi">
+                  <Link to={'/course/' + course.id}>
+                    <span>{course.name}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+      </>
+    );
+  }
+}
+
+export default CourseList;

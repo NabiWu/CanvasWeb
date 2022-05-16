@@ -1,16 +1,18 @@
 import React from "react";
-import CoursesList from "../components/CoursesList"
+import Navbar from "../components/Navbar";
+import CourseList from "../components/CoursesList"
 
 
-function Course() {
+function Courses() {
   return (
     <>
+      <Navbar />
       <h2>
         Select a course:
       </h2>
-      <CoursesList props/>
+      <CourseList />
     </>
   );
 }
 
-export default Course;
+export default Courses;

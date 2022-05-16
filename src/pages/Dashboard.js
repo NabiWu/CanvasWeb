@@ -1,30 +1,14 @@
 import React from "react";
-import CoursesList from "../components/CoursesList"
-
-function getStudentActivities () {
-  return (<div>student activities</div>);
-}
-
-function getTeacherActivities () {
-  return (<div>teacher activities</div>);
-}
-
-const Activities = (props) => {
-  let userType = props.userType;
-  if (userType === "user") {
-    return (getStudentActivities());
-  } else {
-    return (getTeacherActivities());
-  }
-}
+import Navbar from "../components/Navbar";
 
 function Dashboard() {
   return (
-    <div>
-      <div> Dashboard</div>
-      <div><CoursesList/></div>
-      <Activities userType="user"/>
-    </div>
+    <>
+      <Navbar />
+      <div className="dashboard">
+        <h1>Dashboard</h1>
+      </div>
+    </>
   );
 }
 
