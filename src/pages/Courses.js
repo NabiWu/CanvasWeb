@@ -8,7 +8,7 @@ function Course() {
       <h2>
         Select a course:
       </h2>
-      <CoursesList />
+      <CoursesList props/>
     </>
   );
 }

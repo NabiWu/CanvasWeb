@@ -44,3 +44,50 @@ export const AssignmentsData = [
         max_points: 100,
     },
 ]
+
+
+// User
+// uuid, username, email, user_id, password, type(admin/student/teacher), answers, status(inactive/active)
+
+export const UsersData = [
+    {
+        uuid: 1,
+        username: "chenyu",
+        email:"chen@uchicago.edu",
+        user_id: "111",
+        password: 123,
+        type: "student",
+        answers: "[\"charles\",\"UC\",\"cs\"]",
+        status: "inactive"
+    },
+    {
+        uuid: 1,
+        username: "yuerguo",
+        email:"yuer@uchicago.edu",
+        user_id: "112",
+        password: 123,
+        type: "student",
+        answers: "[\"yu\",\"UC\",\"cs\"]",
+        status: "inactive"
+    },
+    {
+        uuid: 1,
+        username: "bohanwu",
+        email:"bohan@uchicago.edu",
+        user_id: "113",
+        password: 123,
+        type: "student",
+        answers: "[\"Navi\",\"UC\",\"cs\"]",
+        status: "active"
+    },
+    {
+        uuid: 1,
+        username: "sb",
+        email:"sb@uchicago.edu",
+        user_id: "211",
+        password: 123,
+        type: "teacher",
+        answers: "[\"sb\",\"UC\",\"cs\"]",
+        status: "active"
+    }
+]
